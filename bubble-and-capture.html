@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Capture and Bubble</title>
+    <style>
+        * {
+          margin: 40px;
+      
+        }
+        div{
+            border: 1px solid black;
+            background: yellow;
+            padding: 20px;
+        }
+        p{
+          border: 1px solid black;
+            background: red;
+            padding: 20px;
+        }
+        span{
+          border: 1px solid black;
+          background: blueviolet;
+          display: block;
+          padding: 20px;
+        }
+      </style>
+</head>
+<body>
+<h1 style="text-align: center;">Capturing and Bubbling demo</h1>
+<p style="background: none; text-align: center;">Capturing happens top to bottom <br>Bubbling happens bottom to top</p>
+
+
+  <div>DIV
+    <p>P
+        <span>SPAN</span>
+    </p>
+  </div>
+
+
+<script>
+  for(let elem of document.querySelectorAll('*')) {
+    elem.addEventListener("click", e => alert(`Capturing: ${elem.tagName}`), true);
+    elem.addEventListener("click", e => alert(`Bubbling: ${elem.tagName}`));
+  }
+</script>
+</body>
